@@ -1,0 +1,23 @@
+{
+    "name": "pilipiliweb/module-prestashop",
+    "type": "pilipiliweb-module",
+    "description": "Class core Pilipiliweb for module Prestashop",
+    "keywords": ["pilipiliweb", "module", "prestashop"],
+    "homepage": "https://www.pilipili-web.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pilipiliweb",
+            "email": "webmaster@pilipili-web.com",
+            "homepage": "https://www.pilipili-web.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "PilipiliWeb\\Module\\Prestashop\\": "./src"
+        }
+    }
+}
