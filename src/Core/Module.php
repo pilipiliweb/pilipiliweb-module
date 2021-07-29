@@ -19,30 +19,30 @@ abstract class Module extends BaseModule
      *
      * @var array
      */
-    public static array $configuration = [];
+    public static $configuration = [];
 
     /**
      * The list of hooks used by the module.
      *
      * @var array
      */
-    public static array $hooks = [];
+    public static $hooks = [];
 
-    public array $tabs = [];
+    public $tabs = [];
 
     /**
      * The page content.
      *
      * @var string
      */
-    protected string $content;
+    protected $content;
 
     /**
      * Entity manager
      *
      * @var object
      */
-    protected object $entityManager;
+    protected $entityManager;
 
     /**
      * {@inheritdoc}

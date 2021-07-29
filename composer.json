@@ -1,6 +1,6 @@
 {
     "name": "pilipiliweb/module-prestashop",
-    "type": "pilipiliweb-module",
+    "type": "library",
     "description": "Class core Pilipiliweb for module Prestashop",
     "keywords": ["pilipiliweb", "module", "prestashop"],
     "homepage": "https://www.pilipili-web.com",
