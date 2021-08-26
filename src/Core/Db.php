@@ -1,6 +1,6 @@
 <?php
 
-namespace PilipiliWeb\Module\Prestashop\Core;
+namespace PilipiliWeb\PwCore\Core;
 
 use Db as PsDb;
 use DbQuery;

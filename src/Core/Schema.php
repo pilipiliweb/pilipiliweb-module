@@ -1,6 +1,6 @@
 <?php
 
-namespace PilipiliWeb\Module\Prestashop\Core;
+namespace PilipiliWeb\PwCore\Core;
 
 final class Schema
 {

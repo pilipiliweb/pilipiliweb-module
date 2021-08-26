@@ -1,6 +1,6 @@
 <?php
 
-namespace PilipiliWeb\Module\Prestashop\Core;
+namespace PilipiliWeb\PwCore\Core;
 
 use Configuration;
 use HelperForm;
@@ -64,7 +64,7 @@ final class Form extends HelperForm
                 'label' => $this->module->getTranslator()->trans(
                     'Yes',
                     [],
-                    'Modules.Namemodule.Form'
+                    'Modules.Pwcore.Form'
                 ),
                 'value' => 1,
             ],
@@ -73,7 +73,7 @@ final class Form extends HelperForm
                 'label' => $this->module->getTranslator()->trans(
                     'No',
                     [],
-                    'Modules.Namemodule.Form'
+                    'Modules.Pwcore.Form'
                 ),
                 'value' => 0,
             ],

@@ -1,6 +1,6 @@
 <?php
 
-namespace PilipiliWeb\Module\Prestashop\Core;
+namespace PilipiliWeb\PwCore\Core;
 
 use Configuration;
 use Language;
@@ -44,6 +44,10 @@ abstract class Module extends BaseModule
      */
     protected $entityManager;
 
+    private const NAME_CONFIGURATION = 'PW_NAME_MODULE';
+    private const PATH_JS = 'views/js/';
+    private const PATH_CSS = 'views/css/';
+
     /**
      * {@inheritdoc}
      */
@@ -57,7 +61,7 @@ abstract class Module extends BaseModule
         $this->confirmUninstall = $this->getTranslator()->trans(
             'Are you sure you want to uninstall this module?',
             [],
-            'Modules.Namemodule.Admin'
+            'Modules.Pwcore.Admin'
         );
     }
 
@@ -73,7 +77,7 @@ abstract class Module extends BaseModule
     public static function getConfig($key, $id_lang = null, $unserialize = false)
     {
         $data = Configuration::get(
-            'PW_ATTRGROUP_ADVANCED_' . Tools::strtoupper($key),
+            self::NAME_CONFIGURATION . Tools::strtoupper($key),
             $id_lang
         );
 
@@ -110,7 +114,7 @@ abstract class Module extends BaseModule
     public static function setConfig($key, $values, $html = false, $serialize = false)
     {
         return Configuration::updateValue(
-            'PW_ATTRGROUP_ADVANCED_' . Tools::strtoupper($key),
+            self::NAME_CONFIGURATION . Tools::strtoupper($key),
             $serialize ? serialize($values) : $values,
             $html
         );
@@ -125,7 +129,7 @@ abstract class Module extends BaseModule
      */
     public static function deleteConfig($key)
     {
-        return Configuration::deleteByName('PW_ATTRGROUP_ADVANCED_' . Tools::strtoupper($key));
+        return Configuration::deleteByName(self::NAME_CONFIGURATION . Tools::strtoupper($key));
     }
 
     /**
@@ -147,11 +151,11 @@ abstract class Module extends BaseModule
     public function registerJavascript($file, $admin = false)
     {
         if ($admin) {
-            $this->context->controller->addJS($this->getPathUri() . 'views/js/' . $file . '.js');
+            $this->context->controller->addJS($this->getPathUri() . self::PATH_JS  . $file . '.js');
         } else {
             $this->context->controller->registerJavascript(
                 'modules-' . $this->name . '-' . $file,
-                'modules/' . $this->name . '/views/js/' . $file . '.js'
+                'modules/' . $this->name . '/' . self::PATH_JS  . $file . '.js'
             );
         }
 
@@ -161,11 +165,11 @@ abstract class Module extends BaseModule
     public function registerStylesheet($file, $admin = false)
     {
         if ($admin) {
-            $this->context->controller->addCSS($this->getPathUri() . 'views/css/' . $file . '.css');
+            $this->context->controller->addCSS($this->getPathUri() . self::PATH_CSS . $file . '.css');
         } else {
             $this->context->controller->registerStylesheet(
                 'modules-' . $this->name . '-' . $file,
-                'modules/' . $this->name . '/views/css/' . $file . '.css'
+                'modules/' . $this->name . '/' . self::PATH_CSS . $file . '.css'
             );
         }
 
@@ -200,7 +204,7 @@ abstract class Module extends BaseModule
                         $this->getTranslator()->trans(
                             'Could not register hook "%s"',
                             [],
-                            'Modules.Namemodule.Admin'
+                            'Modules.Pwcore.Admin'
                         ),
                         $hook
                     );
@@ -330,7 +334,7 @@ abstract class Module extends BaseModule
                     $this->getTranslator()->trans(
                         'Table "%s" could not be created',
                         [],
-                        'Modules.Namemodule.Admin'
+                        'Modules.Pwcore.Admin'
                     ),
                     $name
                 );
@@ -355,7 +359,7 @@ abstract class Module extends BaseModule
                     $this->getTranslator()->trans(
                         'Table "%s" could not be deleted',
                         [],
-                        'Modules.Namemodule.Admin'
+                        'Modules.Pwcore.Admin'
                     ),
                     $name
                 );
