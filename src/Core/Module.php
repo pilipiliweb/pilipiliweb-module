@@ -44,7 +44,7 @@ abstract class Module extends BaseModule
      */
     protected $entityManager;
 
-    private const NAME_CONFIGURATION = 'PW_NAME_MODULE';
+    public const NAME_CONFIGURATION = 'PW_NAME_MODULE';
     private const PATH_JS = 'views/js/';
     private const PATH_CSS = 'views/css/';
 
@@ -77,7 +77,7 @@ abstract class Module extends BaseModule
     public static function getConfig($key, $id_lang = null, $unserialize = false)
     {
         $data = Configuration::get(
-            self::NAME_CONFIGURATION . Tools::strtoupper($key),
+            static::NAME_CONFIGURATION . Tools::strtoupper($key),
             $id_lang
         );
 
@@ -114,7 +114,7 @@ abstract class Module extends BaseModule
     public static function setConfig($key, $values, $html = false, $serialize = false)
     {
         return Configuration::updateValue(
-            self::NAME_CONFIGURATION . Tools::strtoupper($key),
+            static::NAME_CONFIGURATION . Tools::strtoupper($key),
             $serialize ? serialize($values) : $values,
             $html
         );
@@ -129,7 +129,7 @@ abstract class Module extends BaseModule
      */
     public static function deleteConfig($key)
     {
-        return Configuration::deleteByName(self::NAME_CONFIGURATION . Tools::strtoupper($key));
+        return Configuration::deleteByName(static::NAME_CONFIGURATION . Tools::strtoupper($key));
     }
 
     /**
