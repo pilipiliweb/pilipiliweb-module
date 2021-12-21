@@ -7,7 +7,7 @@ use HelperForm;
 use Module as PsModule;
 use Tools;
 
-final class Form extends HelperForm
+class Form extends HelperForm
 {
     /**
      * @var array
